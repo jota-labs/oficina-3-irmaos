@@ -157,8 +157,8 @@
 /* Flare de Ignição do Farol de LED */
 .hero-headlight-flare {
   position: absolute;
-  top: 36%;
-  right: 27%;
+  top: 35%;
+  left: 18%; /* Ajustado para a Titan que está virada para a esquerda */
   width: 90px;
   height: 90px;
   border-radius: 50%;

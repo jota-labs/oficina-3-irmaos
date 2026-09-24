@@ -53,29 +53,8 @@ export function initHeroAnimation() {
   );
 
   // 7. Flash de Ignição no Farol de LED (Pulsos rápidos de luz ao ligar a moto)
-  tl.to('.hero-headlight-flare', {
-    opacity: 0.9,
-    scale: 1.3,
-    duration: 0.12,
-    ease: 'power2.in'
-  }, 1.1)
-  .to('.hero-headlight-flare', {
-    opacity: 0.2,
-    scale: 0.9,
-    duration: 0.08
-  })
-  .to('.hero-headlight-flare', {
-    opacity: 1,
-    scale: 1.5,
-    duration: 0.18,
-    ease: 'power1.out'
-  })
-  .to('.hero-headlight-flare', {
-    opacity: 0,
-    scale: 0.8,
-    duration: 0.45,
-    ease: 'power2.inOut'
-  });
+  // Movido para a seção de ScrollTrigger abaixo para garantir que o cliente veja a animação
+  // mesmo no mobile, quando a moto ficar visível na tela.
 
   // 8. Barra Inferior com Contatos
   tl.fromTo('.hero-footer-bar',
@@ -141,6 +120,39 @@ export function initHeroAnimation() {
   // SCROLLTRIGGER: Parallax Scrubbing no Scroll
   // ============================================
   if (typeof ScrollTrigger !== 'undefined') {
+    
+    // Animação do Farol (só dispara quando a moto entra na tela)
+    const flashTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero-visual',
+        start: 'top 75%' // Dispara quando o topo da moto atinge 75% da altura da tela (visível no mobile)
+      }
+    });
+
+    flashTl.to('.hero-headlight-flare', {
+      opacity: 0.9,
+      scale: 1.3,
+      duration: 0.12,
+      ease: 'power2.in',
+      delay: 0.2
+    })
+    .to('.hero-headlight-flare', {
+      opacity: 0.2,
+      scale: 0.9,
+      duration: 0.08
+    })
+    .to('.hero-headlight-flare', {
+      opacity: 1,
+      scale: 1.5,
+      duration: 0.18,
+      ease: 'power1.out'
+    })
+    .to('.hero-headlight-flare', {
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.45,
+      ease: 'power2.inOut'
+    });
     // Parallax da Moto
     gsap.to('.hero-moto-img', {
       scrollTrigger: {
