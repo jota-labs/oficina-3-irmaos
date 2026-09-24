@@ -1,0 +1,329 @@
+/* ============================================ */
+/* SECTION 4: REVIEWS & BEFORE/AFTER           */
+/* ============================================ */
+.reviews-section {
+  padding: 8rem 0;
+  background-color: var(--bg-white);
+  position: relative;
+}
+
+/* 1. Before/After Slider Area */
+.ba-header {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ba-eyebrow {
+  font-family: var(--font-body);
+  color: var(--accent-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.ba-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ba-accent-bar {
+  width: 4px;
+  height: 48px;
+  background-color: var(--accent-red);
+}
+
+.ba-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  padding-top: 0.25em; /* fix syncopate */
+}
+
+/* Image Compare Slider */
+.compare-slider {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  cursor: ew-resize; /* horizontal resize cursor */
+}
+
+.compare-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.compare-after {
+  z-index: 1;
+}
+
+.compare-before {
+  z-index: 2;
+  width: 50%; /* Initial split at 50% */
+  /* We use clip-path to crop the before image without squishing it */
+  clip-path: inset(0 0 0 0);
+  /* But wait, if width is 50%, the image will be squeezed unless it's an object-fit inside a container. 
+     Instead of changing width, it's better to use a wrapper with width: 50% and overflow: hidden, 
+     where the image inside is width: 100vw or matches the parent.
+     A simpler approach: width 100% on image, and clip-path polygon on the wrapper or image itself. */
+}
+
+.compare-before-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.compare-before-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* To keep the image from scaling down when the wrapper shrinks, we need the image to have a fixed width equal to the container */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Wait, easier way for before/after without complicated JS resizing of inner elements: */
+/* Use an input range over two images, and a clip-path on the top image. */
+.compare-before {
+  z-index: 2;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.compare-label {
+  position: absolute;
+  top: 2rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 40px;
+  backdrop-filter: blur(8px);
+  z-index: 5;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+.label-before { left: 2rem; }
+.label-after { right: 2rem; }
+
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0px;
+  z-index: 3;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Let the input range capture clicks */
+}
+
+.compare-handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: #fff;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.compare-handle-btn {
+  width: 52px;
+  height: 52px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Pulsing effect to invite dragging */
+.compare-handle-btn::before {
+  content: '';
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border: 2px solid var(--accent-red);
+  border-radius: 50%;
+  animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.compare-hint {
+  position: absolute;
+  bottom: -35px;
+  background-color: var(--text-dark);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  animation: bounce-y 2s infinite ease-in-out;
+}
+
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.compare-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  opacity: 0;
+  cursor: ew-resize;
+  margin: 0;
+}
+
+/* 2. Reviews Bottom Area */
+.reviews-grid-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.reviews-left .ba-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.reviews-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Review Card */
+.review-card {
+  background-color: #f9f9fa;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.review-stars {
+  color: var(--accent-red);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 4px;
+}
+
+.review-stars svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.review-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--text-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.review-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.review-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .reviews-grid-area {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .compare-slider {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 5rem 0;
+  }
+  .ba-title {
+    font-size: 2rem;
+  }
+  .reviews-left .ba-title {
+    font-size: 1.8rem;
+  }
+  .compare-slider {
+    height: 350px;
+    margin-bottom: 4rem;
+  }
+  .ba-accent-bar {
+    height: 32px;
+  }
+}

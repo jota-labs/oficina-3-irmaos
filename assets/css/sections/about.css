@@ -1,0 +1,197 @@
+.about-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: var(--bg-body);
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 70px;
+  }
+}
+
+/* ============================================ */
+/* COLUNA ESQUERDA: FOTOS ESCALONADAS (STAGGER) */
+/* ============================================ */
+.about-images-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .about-images-wrap {
+    min-height: 560px;
+  }
+}
+
+.about-img-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background-color: var(--bg-card);
+  border: 1px solid rgba(226, 230, 236, 0.8);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.about-img-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(15, 18, 23, 0.12);
+}
+
+.about-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Foto 1 (Topo - Alinhada à Esquerda) */
+.about-img-top {
+  width: 82%;
+  aspect-ratio: 4 / 3;
+  z-index: 1;
+}
+
+/* Foto 2 (Base - Deslocada à Direita e Sobreposta) */
+.about-img-bottom {
+  width: 82%;
+  aspect-ratio: 4 / 3;
+  margin-left: auto;
+  margin-top: -18%;
+  z-index: 2;
+  border: 4px solid var(--bg-body);
+}
+
+/* Badge Flutuante de Confiança na Foto */
+.about-experience-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -12px;
+  z-index: 3;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 14px 20px;
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow-red);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-number {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.badge-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+/* ============================================ */
+/* COLUNA DIREITA: CONTEÚDO E DIFERENCIAIS      */
+/* ============================================ */
+.about-content {
+  max-width: 620px;
+}
+
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.about-accent-bar {
+  display: inline-block;
+  width: 3.5px;
+  height: 22px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.about-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.about-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.about-description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Lista de Diferenciais com Checks */
+.about-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  margin-bottom: 36px;
+}
+
+.about-check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.check-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: rgba(229, 34, 41, 0.12);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.check-icon-wrap svg {
+  width: 15px;
+  height: 15px;
+}
+
+.check-text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-main);
+}

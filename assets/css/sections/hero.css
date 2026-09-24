@@ -1,0 +1,270 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 60px;
+  background-color: var(--bg-body);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Marca d'água gigante ao fundo (visível e nítida como o TINTING da referência) */
+.hero-watermark {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 15vw, 14rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #DFE4EC; /* Contraste perfeito contra o #F4F6F9 */
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    min-height: calc(100vh - 260px);
+  }
+}
+
+/* Coluna de Conteúdo */
+.hero-content {
+  max-width: 680px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.hero-accent-bar {
+  display: inline-block;
+  width: 3.5px;
+  height: 26px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transform-origin: bottom;
+  will-change: transform;
+}
+
+.hero-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Título com Máscaras Editoriais - Com respiro para acentos circunflexos e til */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.8vw, 3.25rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: 32px;
+}
+
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.25em; /* Espaço para o acento circunflexo (Ô) e til */
+  padding-bottom: 0.15em;
+  margin-top: -0.1em;
+}
+
+.hero-title-inner {
+  display: block;
+  will-change: transform;
+}
+
+.text-gradient-red {
+  color: var(--color-primary);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.hero-btn-main {
+  position: relative;
+  padding: 16px 36px;
+  font-size: 0.9375rem;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 16px var(--color-primary-glow);
+  }
+  50% {
+    box-shadow: 0 6px 26px rgba(229, 34, 41, 0.45);
+  }
+}
+
+.hero-btn-secondary {
+  padding: 16px 28px;
+}
+
+/* Coluna Visual (Moto em Destaque 3D) */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  perspective: 1200px;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Flare de Ignição do Farol de LED */
+.hero-headlight-flare {
+  position: absolute;
+  top: 36%;
+  right: 27%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 200, 0.8) 25%, rgba(229, 34, 41, 0.4) 50%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(5px);
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  z-index: 3;
+}
+
+.hero-moto-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.22));
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Sombra de Contato com o Chão */
+.hero-ground-shadow {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 80%;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(15, 18, 23, 0.45) 0%, rgba(15, 18, 23, 0) 70%);
+  filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Barra Inferior (Footer da Seção 1) */
+.hero-footer-bar {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(226, 230, 236, 0.7);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-footer-bar {
+    grid-template-columns: auto 1fr 1.4fr;
+    gap: 36px;
+  }
+}
+
+/* Indicador de Scroll */
+.hero-scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-mouse {
+  width: 22px;
+  height: 36px;
+  border: 2px solid var(--text-muted);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  animation: scrollAnim 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollAnim {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+/* Dados de Contato e Região */
+.hero-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-info-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.hero-info-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.hero-info-area .hero-info-value {
+  color: var(--color-primary);
+}

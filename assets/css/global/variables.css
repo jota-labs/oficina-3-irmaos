@@ -1,0 +1,39 @@
+:root {
+  /* Cores - Racing Red Palette */
+  --color-primary: #E52229;
+  --color-primary-hover: #C4181F;
+  --color-primary-glow: rgba(229, 34, 41, 0.28);
+  --color-primary-dark: #8B0000;
+
+  /* Superfícies & Fundos */
+  --bg-body: #F4F6F9;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #EEF2F6;
+  --bg-footer: #0B0D11;
+  --bg-footer-card: #14171E;
+
+  /* Textos */
+  --text-main: #0F1217;
+  --text-muted: #5A6270;
+  --text-light: #F8FAFC;
+  --text-light-muted: #8E98A8;
+
+  /* Bordas */
+  --border-light: #E2E6EC;
+  --border-dark: #222631;
+
+  /* Tipografia */
+  --font-display: 'Syncopate', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Efeitos e Sombras */
+  --shadow-sm: 0 2px 8px rgba(15, 18, 23, 0.04);
+  --shadow-md: 0 10px 30px rgba(15, 18, 23, 0.08);
+  --shadow-red: 0 8px 24px rgba(229, 34, 41, 0.32);
+  --radius-btn: 4px;
+  --radius-card: 8px;
+
+  /* Transições */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
