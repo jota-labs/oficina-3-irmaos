@@ -4,6 +4,7 @@ import { initHeroAnimation } from './sections/hero.js';
 import { initAboutAnimation } from './sections/about.js';
 import { initServices } from './sections/services.js';
 import { initReviews } from './sections/reviews.js';
+import { initFaq } from './sections/faq.js';
 import { initFooter } from './sections/footer.js';
 
 function startApp() {
@@ -16,6 +17,7 @@ function startApp() {
   initAboutAnimation();
   initServices();
   initReviews();
+  initFaq();
   initFooter();
 }
 
