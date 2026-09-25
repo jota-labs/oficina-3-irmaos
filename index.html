@@ -83,10 +83,14 @@
   }
   </script>
 
-  <!-- Google Fonts Preconnect (Elimina bloqueio de renderização) -->
+  <!-- Google Fonts Preconnect & Asynchronous Non-blocking Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Syncopate:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Syncopate:wght@700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Syncopate:wght@700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Syncopate:wght@700;800&display=swap">
+  </noscript>
 
   <!-- Unified Production CSS Bundle (Zero @import waterfalls) -->
   <link rel="stylesheet" href="assets/css/bundle.css">
@@ -99,8 +103,8 @@
   <!-- ============================================ -->
   <header class="site-header">
     <div class="container header-container">
-      <a href="#" class="header-logo" aria-label="Oficina 3 Irmãos - Início">
-        <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos Logo" width="160" height="75">
+      <a href="#inicio" class="header-logo" aria-label="Oficina 3 Irmãos - Início">
+        <img src="assets/images/logo-3-irmaos-sem-fundo.webp" alt="Oficina 3 Irmãos Logo" width="160" height="75">
       </a>
 
       <nav class="header-nav" aria-label="Navegação Principal">
@@ -174,7 +178,7 @@
               <!-- Flare de luz do farol de LED (efeito de ignição) -->
               <div class="hero-headlight-flare" aria-hidden="true"></div>
 
-              <img src="assets/images/hero-moto-160.png" 
+              <img src="assets/images/hero-moto-160.webp" 
                    alt="Honda Titan 160 Vermelha revisada na Oficina 3 Irmãos" 
                    class="hero-moto-img" 
                    width="500" 
@@ -219,11 +223,11 @@
           <!-- Coluna Esquerda: Grid Escalonado de Fotos -->
           <div class="about-images-wrap">
             <div class="about-img-card about-img-top">
-              <img src="assets/images/foto-equipe-3-irmaos-premio.jpg" alt="Equipe Oficina 3 Irmãos recebendo prêmio de destaque" width="480" height="360" loading="lazy">
+              <img src="assets/images/foto-equipe-3-irmaos-premio.webp" alt="Equipe Oficina 3 Irmãos recebendo prêmio de destaque" width="480" height="360" loading="lazy" decoding="async">
             </div>
 
             <div class="about-img-card about-img-bottom">
-              <img src="assets/images/equipe-3-irmaos-premios-2.jpg" alt="Técnicos da Oficina 3 Irmãos premiados como melhor oficina da cidade" width="480" height="360" loading="lazy">
+              <img src="assets/images/equipe-3-irmaos-premios-2.webp" alt="Técnicos da Oficina 3 Irmãos premiados como melhor oficina da cidade" width="480" height="360" loading="lazy" decoding="async">
             </div>
 
             <!-- Badge Flutuante de Anos de Atuação -->
@@ -336,7 +340,7 @@
           <!-- Card 1: Revisão Geral -->
           <article class="service-card">
             <div class="service-img-wrap">
-              <img src="assets/images/services/revisao.jpg" alt="Mecânico fazendo revisão geral em motocicleta" loading="lazy">
+              <img src="assets/images/services/revisao.webp" alt="Mecânico fazendo revisão geral em motocicleta" width="540" height="360" loading="lazy" decoding="async">
             </div>
             <div class="service-content">
               <h3 class="service-title">Revisão<br>Geral</h3>
@@ -352,7 +356,7 @@
           <!-- Card 2: Injeção Eletrônica -->
           <article class="service-card">
             <div class="service-img-wrap">
-              <img src="assets/images/services/injecao.jpg" alt="Scanner de diagnóstico e injeção eletrônica de motos" loading="lazy">
+              <img src="assets/images/services/injecao.webp" alt="Scanner de diagnóstico e injeção eletrônica de motos" width="540" height="360" loading="lazy" decoding="async">
             </div>
             <div class="service-content">
               <h3 class="service-title">Injeção<br>Eletrônica</h3>
@@ -368,7 +372,7 @@
           <!-- Card 3: Motor e Transmissão -->
           <article class="service-card">
             <div class="service-img-wrap">
-              <img src="assets/images/services/motor.jpg" alt="Mecânico consertando motor de motocicleta" loading="lazy">
+              <img src="assets/images/services/motor.webp" alt="Mecânico consertando motor de motocicleta" width="540" height="360" loading="lazy" decoding="async">
             </div>
             <div class="service-content">
               <h3 class="service-title">Motor &<br>Suspensão</h3>
@@ -384,7 +388,7 @@
           <!-- Card 4: Troca de Óleo -->
           <article class="service-card">
             <div class="service-img-wrap">
-              <img src="assets/images/services/oleo.jpg" alt="Troca de óleo de alta performance para moto" loading="lazy">
+              <img src="assets/images/services/oleo.webp" alt="Troca de óleo de alta performance para moto" width="540" height="360" loading="lazy" decoding="async">
             </div>
             <div class="service-content">
               <h3 class="service-title">Troca de Óleo<br>& Filtros</h3>
@@ -418,8 +422,8 @@
 
         <!-- Slider de Comparação -->
         <div class="compare-slider">
-          <img src="assets/images/reviews/moto-clean.jpg" alt="Moto Limpa e Revisada" class="compare-img compare-after" loading="lazy">
-          <img src="assets/images/reviews/moto-dirty.jpg" alt="Moto Suja e sem manutenção" class="compare-img compare-before" loading="lazy">
+          <img src="assets/images/reviews/moto-clean.webp" alt="Moto Limpa e Revisada" class="compare-img compare-after" width="600" height="450" loading="lazy" decoding="async">
+          <img src="assets/images/reviews/moto-dirty.webp" alt="Moto Suja e sem manutenção" class="compare-img compare-before" width="600" height="450" loading="lazy" decoding="async">
 
           <!-- Etiquetas para ficar intuitivo -->
           <span class="compare-label label-before">ANTES</span>
@@ -457,7 +461,7 @@
           <div class="reviews-right">
             <!-- Avaliação 1 -->
             <article class="review-card">
-              <div class="review-stars" aria-label="5 estrelas">
+              <div class="review-stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
@@ -480,7 +484,7 @@
               <div class="review-author">
                 <div class="review-avatar">M</div>
                 <div>
-                  <h4 class="review-name">Marcos Silva</h4>
+                  <h3 class="review-name">Marcos Silva</h3>
                   <span class="review-meta">Cliente Honda • Conceição do Coité</span>
                 </div>
               </div>
@@ -488,7 +492,7 @@
 
             <!-- Avaliação 2 -->
             <article class="review-card">
-              <div class="review-stars" aria-label="5 estrelas">
+              <div class="review-stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
@@ -511,7 +515,7 @@
               <div class="review-author">
                 <div class="review-avatar" style="background-color: var(--accent-red);">C</div>
                 <div>
-                  <h4 class="review-name">Carlos Eduardo</h4>
+                  <h3 class="review-name">Carlos Eduardo</h3>
                   <span class="review-meta">Cliente Yamaha • Olhos D'Água</span>
                 </div>
               </div>
@@ -755,7 +759,7 @@
     <section class="gallery-section">
       <!-- Galeria Esquerda -->
       <div class="gallery-item">
-        <img src="assets/images/gallery/gallery-1.jpg" alt="Peças premium e suspensão" class="gallery-img" loading="lazy">
+        <img src="assets/images/gallery/gallery-1.webp" alt="Peças premium e suspensão" class="gallery-img" width="600" height="400" loading="lazy" decoding="async">
         <div class="gallery-content">
           <span class="gallery-accent" aria-hidden="true"></span>
           <div class="gallery-text">
@@ -767,7 +771,7 @@
 
       <!-- Galeria Direita -->
       <div class="gallery-item">
-        <img src="assets/images/gallery/gallery-2.jpg" alt="Oficina 3 Irmãos estrutura" class="gallery-img" loading="lazy">
+        <img src="assets/images/gallery/gallery-2.webp" alt="Oficina 3 Irmãos estrutura" class="gallery-img" width="600" height="400" loading="lazy" decoding="async">
         <div class="gallery-content">
           <span class="gallery-accent" aria-hidden="true"></span>
           <div class="gallery-text">
@@ -813,7 +817,7 @@
 
         <!-- Coluna do Meio (Links Úteis) -->
         <div class="footer-middle">
-          <h4 class="footer-col-title">Links Úteis</h4>
+          <h3 class="footer-col-title">Links Úteis</h3>
           <ul class="footer-links">
             <li><a href="#inicio">Início</a></li>
             <li><a href="#sobre">Quem Somos</a></li>
@@ -827,7 +831,7 @@
 
         <!-- Coluna Direita (Contato e Localização) -->
         <div class="footer-right">
-          <h4 class="footer-col-title">Contato</h4>
+          <h3 class="footer-col-title">Contato</h3>
           <a href="https://maps.google.com/?q=Oficina+3+Irmãos+Conceição+do+Coité" target="_blank" rel="noopener noreferrer" class="footer-address">
             Av. Getúlio Vargas, 380<br>
             Bairro Olhos D'agua<br>
@@ -858,7 +862,7 @@
       <!-- Barra Inferior -->
       <div class="footer-bottom">
         <a href="#inicio" class="footer-bottom-logo">
-          <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos" width="160" height="75" loading="lazy">
+          <img src="assets/images/logo-3-irmaos-sem-fundo.webp" alt="Oficina 3 Irmãos" width="160" height="75" loading="lazy" decoding="async">
         </a>
         <div class="footer-copyright">
           Copyright &copy; 2026 Oficina 3 Irmãos • OFICINA 3 IRMAOS LTDA — CNPJ: 35.348.852/0001-59.<br>Todos os direitos reservados.

@@ -1399,7 +1399,7 @@ ul, ol {
 .review-meta {
   font-family: var(--font-body);
   font-size: 0.85rem;
-  color: #888;
+  color: #525866;
 }
 
 /* Responsiveness */
@@ -1940,7 +1940,7 @@ ul, ol {
 .expert-label {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: #888;
+  color: #9AA4B2;
 }
 
 .expert-phone {
@@ -1969,7 +1969,7 @@ ul, ol {
 }
 
 .footer-links a {
-  color: #999;
+  color: #D0D5DD;
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 1rem;
@@ -2038,7 +2038,7 @@ ul, ol {
 }
 
 .footer-copyright {
-  color: #666;
+  color: #9AA4B2;
   font-family: var(--font-body);
   font-size: 0.85rem;
 }
