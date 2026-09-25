@@ -83,11 +83,13 @@
   }
   </script>
 
-  <!-- Lenis Smooth Scroll CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
+  <!-- Google Fonts Preconnect (Elimina bloqueio de renderização) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Syncopate:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet Modular -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- Unified Production CSS Bundle (Zero @import waterfalls) -->
+  <link rel="stylesheet" href="assets/css/bundle.css">
 </head>
 
 <body>
@@ -98,7 +100,7 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="#" class="header-logo" aria-label="Oficina 3 Irmãos - Início">
-        <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos Logo">
+        <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos Logo" width="160" height="75">
       </a>
 
       <nav class="header-nav" aria-label="Navegação Principal">
@@ -172,7 +174,13 @@
               <!-- Flare de luz do farol de LED (efeito de ignição) -->
               <div class="hero-headlight-flare" aria-hidden="true"></div>
 
-              <img src="assets/images/hero-moto-160.png" alt="Honda Titan 160 Vermelha revisada na Oficina 3 Irmãos" class="hero-moto-img" loading="eager">
+              <img src="assets/images/hero-moto-160.png" 
+                   alt="Honda Titan 160 Vermelha revisada na Oficina 3 Irmãos" 
+                   class="hero-moto-img" 
+                   width="500" 
+                   height="500" 
+                   fetchpriority="high" 
+                   loading="eager">
 
               <div class="hero-ground-shadow" aria-hidden="true"></div>
             </div>
@@ -850,7 +858,7 @@
       <!-- Barra Inferior -->
       <div class="footer-bottom">
         <a href="#inicio" class="footer-bottom-logo">
-          <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos">
+          <img src="assets/images/logo-3-irmaos-sem-fundo.png" alt="Oficina 3 Irmãos" width="160" height="75" loading="lazy">
         </a>
         <div class="footer-copyright">
           Copyright &copy; 2026 Oficina 3 Irmãos • OFICINA 3 IRMAOS LTDA — CNPJ: 35.348.852/0001-59.<br>Todos os direitos reservados.
@@ -859,15 +867,15 @@
     </div>
   </footer>
 
-  <!-- Lenis Smooth Scroll -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- Lenis Smooth Scroll (Defer) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
-  <!-- GSAP Core & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP Core & ScrollTrigger (Defer) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Script Modular do Projeto -->
-  <script type="module" src="assets/js/main.js"></script>
+  <!-- Unified Production JS Bundle (Zero Network Latency) -->
+  <script defer src="assets/js/bundle.js"></script>
 </body>
 
 </html>
