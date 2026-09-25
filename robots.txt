@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oficina3irmaos.com.br/sitemap.xml

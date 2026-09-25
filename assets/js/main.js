@@ -1,4 +1,5 @@
 import { initSmoothScroll } from './global/smooth-scroll.js';
+import { initHeader } from './sections/header.js';
 import { initHeroAnimation } from './sections/hero.js';
 import { initAboutAnimation } from './sections/about.js';
 import { initServices } from './sections/services.js';
@@ -8,6 +9,7 @@ import { initFooter } from './sections/footer.js';
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Global Scripts
   initSmoothScroll();
+  initHeader();
 
   // Initialize Section Scripts
   initHeroAnimation();
