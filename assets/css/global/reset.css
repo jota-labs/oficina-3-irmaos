@@ -27,7 +27,7 @@ html.lenis, html.lenis-smooth {
   overflow: hidden;
 }
 
-.lenis.lenis-smooth iframe {
+.lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
 
