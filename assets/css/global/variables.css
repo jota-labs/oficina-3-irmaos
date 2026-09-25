@@ -36,4 +36,11 @@
   /* Transições */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Aliases & Fallbacks para compatibilidade */
+  --accent-red: var(--color-primary);
+  --accent-red-hover: var(--color-primary-hover);
+  --text-dark: var(--text-main);
+  --text-gray: var(--text-muted);
+  --font-heading: var(--font-display);
 }

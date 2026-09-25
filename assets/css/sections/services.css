@@ -143,15 +143,33 @@
 
 /* Button override for service cards to match reference */
 .btn-service {
-  background-color: var(--accent-red);
-  color: #fff;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 24px;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid var(--color-primary);
   align-self: flex-start;
+  text-decoration: none;
+  box-shadow: 0 4px 16px var(--color-primary-glow);
+  transition: all var(--transition-normal);
+  cursor: pointer;
 }
 
 .btn-service:hover {
-  background-color: var(--text-dark);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-red);
 }
 
 /* Responsiveness */

@@ -6,7 +6,7 @@ import { initServices } from './sections/services.js';
 import { initReviews } from './sections/reviews.js';
 import { initFooter } from './sections/footer.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+function startApp() {
   // Initialize Global Scripts
   initSmoothScroll();
   initHeader();
@@ -17,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initServices();
   initReviews();
   initFooter();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
+} else {
+  startApp();
+}

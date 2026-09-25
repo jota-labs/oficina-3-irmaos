@@ -12,25 +12,33 @@ export function initHeader() {
     
     toggleBtn.classList.toggle('active', shouldOpen);
     nav.classList.toggle('active', shouldOpen);
-    header.classList.toggle('menu-open', shouldOpen);
+    if (header) header.classList.toggle('menu-open', shouldOpen);
     toggleBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-    document.body.style.overflow = shouldOpen ? 'hidden' : '';
+    
+    if (shouldOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
   }
 
+  // Handle click on hamburger button
   toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     toggleMenu();
   });
 
-  // Close menu when clicking outside or clicking any nav link
+  // Close menu when clicking any nav link
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       toggleMenu(false);
     });
   });
 
+  // Close when clicking outside the nav menu
   document.addEventListener('click', (e) => {
-    if (nav.classList.contains('active') && !header.contains(e.target)) {
+    if (nav.classList.contains('active') && !nav.contains(e.target) && !toggleBtn.contains(e.target)) {
       toggleMenu(false);
     }
   });
@@ -38,9 +46,9 @@ export function initHeader() {
   // Header scroll shadow state
   window.addEventListener('scroll', () => {
     if (window.scrollY > 30) {
-      header.classList.add('scrolled');
+      if (header) header.classList.add('scrolled');
     } else {
-      header.classList.remove('scrolled');
+      if (header) header.classList.remove('scrolled');
     }
   }, { passive: true });
 }
