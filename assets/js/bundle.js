@@ -6,7 +6,7 @@ function initSmoothScroll() {
   // Inicialização do Lenis Smooth Scroll
   if (typeof Lenis !== 'undefined') {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -15,20 +15,36 @@ function initSmoothScroll() {
       touchMultiplier: 1.5,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    window.lenis = lenis;
 
-    // Conectar com GSAP ScrollTrigger
-    if (typeof ScrollTrigger !== 'undefined') {
+    // Conectar com GSAP ScrollTrigger (usando APENAS o ticker do GSAP quando disponível)
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
       });
       gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
     }
+
+    // Scroll suave para links âncora internos
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -70 });
+          }
+        }
+      });
+    });
   }
 
   // Header scroll state
@@ -65,8 +81,10 @@ function initHeader() {
     
     if (shouldOpen) {
       document.body.classList.add('no-scroll');
+      if (window.lenis) window.lenis.stop();
     } else {
       document.body.classList.remove('no-scroll');
+      if (window.lenis) window.lenis.start();
     }
   }
 
